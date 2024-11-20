@@ -41,6 +41,32 @@ main {
 #my-library {
     background-color: var(--light-gray);
     overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 150px);
+    grid-template-rows: 250px;
+    grid-auto-rows: 250px;
+    gap: 16px;
+    padding: 32px;
+}
+
+.card-book {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.card-book > img {
+    width: inherit;
+    object-fit: fill;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card-book > p {
+    text-align: center;
+    margin-bottom: 8px;
 }
 
 #book-info {
