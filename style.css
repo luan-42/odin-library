@@ -1,0 +1,48 @@
+:root {
+    --shadow-primary: 0px 0px 5px 0px rgba(0, 0, 0, 0.20);
+    /*colors*/
+    --light-gray: rgb(230, 230, 230);
+    --color-primary: rgb(146, 39, 39);
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 80px 1fr 380px;
+}
+
+#menu {
+    box-shadow: var(--shadow-primary);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu > img {
+    height: 2rem;
+    cursor: pointer;
+}
+
+#menu > img:first-of-type {
+    background-color: var(--color-primary);
+    border-radius: 60%;
+    padding: 0.5rem;
+    box-sizing: content-box;
+}
+
+#my-library {
+    background-color: var(--light-gray);
+    overflow: scroll;
+}
+
+#book-info {
+    box-shadow: var(--shadow-primary);
+}
