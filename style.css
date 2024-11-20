@@ -13,7 +13,7 @@
 main {
     height: 100dvh;
     display: grid;
-    grid-template-columns: 80px 1fr 380px;
+    grid-template-columns: 80px 1fr auto;
 }
 
 #menu {
@@ -54,10 +54,11 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
 }
 
+#new-book > div,
 .card-book > img {
+    height: 215px;
     width: inherit;
     object-fit: fill;
     border-radius: 8px;
@@ -69,6 +70,24 @@ main {
     margin-bottom: 8px;
 }
 
+#new-book > div {
+    border: 2px dotted var(--color-primary);
+    align-content: center;
+}
+
+#new-book p {
+    margin: 0 auto;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 60%;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    background-color: white;
+    font-weight: bold;
+}
+
 #book-info {
+    width: 380px;
     box-shadow: var(--shadow-primary);
+    display: none;
 }

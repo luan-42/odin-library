@@ -16,9 +16,43 @@
             <img src="./images/cog.svg">
         </div>
         <div id="my-library">
+            <div class="card-book" id="new-book">
+                <div><p>+</p></div>
+            </div>
         </div>
         <div id="book-info">
         </div>
     </main>
+    <dialog id="add-book-form">
+        <form method="dialog">
+            <div>
+                <label for="book-cover-form">Cover Image Link:</label>
+                <input type="input" name="cover" id="book-cover-form">
+            </div>
+            <div>
+                <label for="book-title-form">Title:</label>
+                <input type="text" name="title" maxlength="40" id="book-title-form">
+            </div>
+            <div>
+                <label for="book-author-form">Author:</label>
+                <input type="text" name="author" id="book-author-form">
+            </div>
+            <div>
+                <label for="book-pages-form">Pages:</label>
+                <input type="number" name="pages" id="book-pages-form">
+            </div>
+            <div>
+                <label for="book-description-form">Description: </label>
+                <textarea name="description" id="book-description-form"></textarea>
+            </div>
+            <div>
+                <input type="checkbox" name="read" id="book-read-form">
+                <label for="book-read-form">Read</label>
+            </div>
+            <div>
+                <button id="btn-add-book">Add</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
