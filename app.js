@@ -1,4 +1,5 @@
 const myLibrary = [];
+const library = document.querySelector("#my-library");
 
 function Book(cover, title, author, pages, description, read) {
     this.cover = cover
@@ -16,10 +17,40 @@ function addBookToLibrary(cover, title, author, pages, description, read) {
     myLibrary.push(book);
 }
 
-const newBook = document.querySelector("#new-book");
+function removeBookToLibrary(index) {
+    myLibrary.splice(index, 1);
+}
 
+const bookInfo = document.querySelector("#book-info");
+function displayBookInfo(index) {
+    const read = bookInfo.querySelector("#actions > button");
+    const btn_delete = bookInfo.querySelector("#actions > img");
+    bookInfo.style.display = "flex";
+    bookInfo.querySelector("img").src = myLibrary[index].cover;;
+    bookInfo.querySelector("h2").textContent = myLibrary[index].title;
+    bookInfo.querySelector(".author").textContent = myLibrary[index].author;
+    bookInfo.querySelector(".pages").textContent = myLibrary[index].pages;
+    bookInfo.querySelector(".description").textContent = myLibrary[index].description;
+    read.textContent = myLibrary[index].read ? "Read" : "Unread";
+    read.className = myLibrary[index].read ? "read" : "unread";
+    read.onclick = () => {
+        myLibrary[index].read = !myLibrary[index].read;
+        read.textContent = myLibrary[index].read ? "Read" : "Unread";
+        read.className = myLibrary[index].read ? "read" : "unread";
+    };
+    btn_delete.onclick = () => {
+        removeBookToLibrary(index);
+        bookInfo.style.display = "none";
+        displayBooks(myLibrary);
+    };
+}
+
+library.addEventListener("click", () => {
+    bookInfo.style.display = "none";
+});
+
+const newBook = document.querySelector("#new-book");
 function displayBooks(books) {
-    const library = document.querySelector("#my-library");
     library.innerHTML = "";
     library.appendChild(newBook);
     let index = 0;
@@ -30,11 +61,11 @@ function displayBooks(books) {
 
         const cover = document.createElement("img");
         cover.src = book["cover"];
+        cover.addEventListener("click", (event) => {
+            displayBookInfo(cardBook.dataset.index);
+            event.stopPropagation();
+        });
         cardBook.appendChild(cover);
-
-        const title = document.createElement("p");
-        title.textContent = book["title"]
-        cardBook.appendChild(title);
 
         library.appendChild(cardBook);
         index++;
@@ -47,7 +78,7 @@ newBook.addEventListener("click", () => {
 });
 
 const addBook = document.querySelector("#btn-add-book");
-addBook.addEventListener("click", () => {
+addBook.addEventListener("click", (event) => {
     const book = [];
     const inputs = modal.querySelectorAll("input, textarea");
 

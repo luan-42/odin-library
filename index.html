@@ -21,6 +21,17 @@
             </div>
         </div>
         <div id="book-info">
+            <div class="info">
+                <img src="" class="cover">
+                <h2 class="center"></h2>
+                <p class="center">by <span class="author"></span></p>
+                <p class="center">Pages: <span class="pages"></span></p>
+                <p class="description"></p>
+            </div>
+            <div id="actions">
+                <button>Read</button>
+                <img src="./images/trash-can-outline.svg">
+            </div>
         </div>
     </main>
     <dialog id="add-book-form">
@@ -31,7 +42,7 @@
             </div>
             <div>
                 <label for="book-title-form">Title:</label>
-                <input type="text" name="title" maxlength="40" id="book-title-form">
+                <input type="text" name="title" maxlength="40" id="book-title-form" reqired>
             </div>
             <div>
                 <label for="book-author-form">Author:</label>

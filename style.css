@@ -54,6 +54,11 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.card-book:hover {
+    transform: translateY(-4px);
 }
 
 #new-book > div,
@@ -89,5 +94,68 @@ main {
 #book-info {
     width: 380px;
     box-shadow: var(--shadow-primary);
+    padding: 16px;
+    justify-content: space-between;
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info .cover {
+    width: 320px;
+    height: 450px;
+    object-fit: cover;
+}
+
+#book-info p {
+    margin: 0.2rem 0;
+}
+
+p.center {
+    text-align: center;
+}
+
+p > span {
+    font-weight: bold;
+}
+
+#actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 80px;
+}
+
+#actions button {
+    padding: 8px 32px;
+    border: none;
+    border-radius: 16px;
+    box-sizing: content-box;
+}
+
+#actions button.read {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+#actions button.unread {
+    background: none;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+} 
+
+#actions img {
+    width: 32px;
+}
+
+#actions button:hover,
+#actions img:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease;
 }
